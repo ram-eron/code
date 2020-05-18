@@ -19,12 +19,10 @@ public class ProgramaA {
 			
 			
 			if (sch == '1' ) {
-				Thread.sleep(5000);
-				System.out.println(sch);
+				Thread.sleep(5000); // executando em 5 seg
 				sch = '5';
 			}else {
-				Thread.sleep(1000);
-				System.out.println(sch);
+				Thread.sleep(1000); // executando em 1 seg
 				sch = '1';
 					
 			}
