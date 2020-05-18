@@ -1,4 +1,4 @@
-package principal;
+package 	principal;
 
 public class ProgramaA {
 	/** 
@@ -12,10 +12,23 @@ public class ProgramaA {
 	public static void main(String[] args) throws InterruptedException {
 		Controle c = new Controle();
 		String file = "//home//eron//Temp//dataA.txt";
-		
+		char sch = '5';
 		while (true) {
+			
 			c.InsereControl(file);	//invoca a criação do controle
-			Thread.sleep(5000);
+			
+			
+			if (sch == '1' ) {
+				Thread.sleep(5000);
+				System.out.println(sch);
+				sch = '5';
+			}else {
+				Thread.sleep(1000);
+				System.out.println(sch);
+				sch = '1';
+					
+			}
+
 		
 			}
 
