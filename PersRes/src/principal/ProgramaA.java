@@ -11,7 +11,7 @@ public class ProgramaA {
 	
 	public static void main(String[] args) throws InterruptedException {
 		Controle c = new Controle();
-		String file = "//home//eron//Temp//dataA.txt";
+		String file = "//home//eron//Temp//dataA.txt"; // cada programa controla o diretorio do seu arquivo
 		char sch = '5';
 		while (true) {
 			

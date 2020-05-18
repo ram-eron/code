@@ -10,8 +10,8 @@ public class ProgramaB {
 		  * >>instaciando o obejeto Controle e invoca metodo CopiaArquivo()
 		  * >> implementa thread para controle do tempo 
 		 */
-		String fileA = "//home//eron//Temp//dataA.txt";
-		String fileB = "//home//eron//Temp//dataB.txt";
+		String fileA = "//home//eron//Temp//dataA.txt";  //Arquivo programa A, usado para comparação
+		String fileB = "//home//eron//Temp//dataB.txt"; // cada programa controla o diretorio do seu arquivo
 
 		Controle b = new Controle();
 		while (true) {

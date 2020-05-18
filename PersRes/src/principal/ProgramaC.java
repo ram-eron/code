@@ -9,11 +9,12 @@ public class ProgramaC {
 		  * >>instaciando o obejeto Controle e invoca metodo CopiaArquivo()
 		  * >> implementa thread para controle do tempo 
 		 */
-		Controle c = new Controle();
-		String fileC = "//home//eron//Temp//dataC.txt";
+		String fileC = "//home//eron//Temp//dataC.txt"; // cada programa controla o diretorio do seu arquivo
 		String fileA = "//home//eron//Temp//dataA.txt";
 		String fileB = "//home//eron//Temp//dataB.txt";
-		
+
+		Controle c = new Controle();
+
 		while (true) {
 			c.Comparador(fileA, fileB, fileC);    // invocando metodo copia de segurança
 			Thread.sleep(20000); // controle do tempo de execução
