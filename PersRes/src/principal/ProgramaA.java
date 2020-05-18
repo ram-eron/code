@@ -5,7 +5,7 @@ public class ProgramaA {
 	 * @param args
 	 * @throws InterruptedException
 	 * executando o programa A 
-	 * >>instaciando o obejeto Controle e invoca metodo Run ( extensão da classe Thread)
+	 * >>instaciando o obejeto Controle e invoca metodo insereControl() - usado na leitura e criação do arquivo.
 	 * >> implementa thread para controle do tempo 
 	 */
 	
