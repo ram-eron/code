@@ -25,7 +25,8 @@ public class Controle {
 	 */		
 	
 	private String file;
-	private int contador; 
+	private int contador;
+	float igual = 0f, dif = 0f; 
 	private int contadorB; 
 
 	
@@ -49,6 +50,8 @@ public class Controle {
 				insF.print(this.contador);		//insere valor ja incrementado no arquivoA
 				System.out.println("log:" + file +  "  =  " + this.contador); // Debug(log)
 				insF.close();
+				
+				Backup(file, "//home//eron//Temp//dataB.txt");
 			
 		} catch (FileNotFoundException e) {
 			CriaArquivo(); // se o arquivo nao existir chama o metodo CriaArquivo()
@@ -73,6 +76,26 @@ public class Controle {
 			System.out.print("Erro na criação, verifique permissões do diretorio");
 		}
 	}
+	
+	
+	private void Backup(String fileA, String fileB) {
+	
+		Scanner lerF;
+		PrintStream insF;
+		
+			try {
+				lerF = new Scanner(new FileInputStream(fileA));
+				this.contadorB = lerF.nextInt();
+				lerF.close();
+			
+				insF = new PrintStream(new FileOutputStream(fileB, false));
+				insF.print(this.contadorB);
+				
+		}catch (FileNotFoundException e) {
+				System.out.println("ERRO");
+		}
+		
+}
 	
 	public void CopiaArquivo(String fileA, String fileB) {
 		/**
@@ -101,7 +124,7 @@ public class Controle {
 		 * Metodo comparador dos arquivos
 		 * Cria arquivo C
 		 */
-		Scanner ler;
+		Scanner ler; 
 		int a,b;
 		PrintStream insF;
 		Date data = new Date();
@@ -110,12 +133,27 @@ public class Controle {
 				a = ler.nextInt(); // valor do arquivo A
 				ler = new Scanner(new FileInputStream(fileB));
 				b = ler.nextInt(); //valor do arquivo B
+				String x;
 				
-				String x = (a==b)?"IGUAIS":"DIFERENTES"; // ternario: compara valores dos arquivos
+				if (a==1) {
+					this.dif = 0;
+					this.igual = 0; 
+				}
+
+				
+				if (a==b) {
+					x = "IGUAIS";
+					this.igual++;
+				}else {
+					x = "DIFERENTES";
+					this.dif++;
+				}
+				
+				//String x = (a==b)?"IGUAIS":"DIFERENTES"; // ternario: compara valores dos arquivos
 				
 				insF = new PrintStream(new FileOutputStream(fileC, true));
  				insF.println(data + " " + x );  	// saida para o arquivo de comparação 
- 				System.out.println(data + " - " + x); //Debug (log)
+ 				System.out.println(data + " - " + x + "     [ PERCENTUAL OK: " + Math.round((this.igual/(this.igual+this.dif))*100)+ " ]"); //Debug (log)
 				
 				
 				ler.close();
@@ -127,8 +165,6 @@ public class Controle {
 			
 		
 	}
-	
-	
 	
 	
 }
