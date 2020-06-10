@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 
+import br.com.essencial.arquivo.Calendario;
+
 /**
  * Classe de controle da Agenda
  * 
@@ -125,6 +127,27 @@ public class ControleAgenda extends Contatos {
 			}
 		}
 	}
+	
+	
+	public void Aniversariantes() {
+		Calendario anivMes = new Calendario();
+		
+		for (int i = 0; i < getlinhas().length; i++) {
+			setNomes(getlinhas());
+		}
+		
+		for (int j = 1; j < getNomes().length; j++) {
+		int mesNiverContatos = Integer.parseInt(getNomes()[j].split(",")[4].trim());
+		
+		if (mesNiverContatos == anivMes.getMes() ) {
+			System.out.println(getNomes()[j]);
+			
+			}
+		
+		}
+		
+	}
+	
 	/**
 	 * copia segura do arquivo na exclusão
 	 * 

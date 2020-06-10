@@ -78,24 +78,29 @@ public class PAgenda {
 					break;
 
 			case 4:
-				inicia = false;
+					//aniversariantes do mes corrente
+					nome.Aniversariantes();
+				
 				break;
 
 			case 5:
-				System.out.println("Quantos nome deseja inserir ? ");
-				qtdNomes = Integer.parseInt(in.next());
-				// descarta a quebra de linha
-				in.nextLine();
-
+					//Inserindo Nomes
+					System.out.println("Quantos nome deseja inserir ? ");
+					qtdNomes = Integer.parseInt(in.next());
+					// descarta a quebra de linha
+					in.nextLine();
+				
+					int iteradorNome = 1;
+				
 				while (qtdNomes > 0) {
-					
-					System.out.println("Digite o nome: ");
+						
+					System.out.println("Digite o " + iteradorNome + "º " + "nome : ");
 					nome.setNome(in.nextLine());
 
-					System.out.println("Digite o dia do nascimento: ");
+					System.out.println("Digite o DIA do nascimento: ");
 					nome.setDia(Integer.parseInt(in.nextLine()));
 
-					System.out.println("Digite o mes do nascimento: ");
+					System.out.println("Digite o MES do nascimento: ");
 					nome.setMes(Integer.parseInt(in.nextLine()));
 
 					System.out.println("Digite o telefone: ");
@@ -110,6 +115,7 @@ public class PAgenda {
 						System.out.println("Erro na inserção do nome");
 					}
 					qtdNomes--;
+					iteradorNome++;
 				}
 				break;
 
@@ -118,7 +124,7 @@ public class PAgenda {
 				System.out.println("informe o ID do contado a remover: ");
 				id = in.nextInt();
 				try {
-					nome.RemoveContato(id);
+						nome.RemoveContato(id);
 
 				} catch (Exception e) {
 					System.out.println("Erro: Valor não corresponde a nenhum ID");
