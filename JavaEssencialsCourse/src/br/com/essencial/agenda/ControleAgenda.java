@@ -59,7 +59,7 @@ public class ControleAgenda extends Contatos {
 
 		String nome, telefone, dia, mes;
 		int idver;
-		
+
 		copyFile(this.file, this.fileBkp); // bkp
 		LimpaArquivo(file); // limpa atual
 
@@ -68,8 +68,8 @@ public class ControleAgenda extends Contatos {
 
 			if (id == idver) {
 				setIndice(i, "LIVRE");
-				}
 			}
+		}
 
 		for (int i = 0; i < getNomes().length; i++) {
 			if (getNomes()[i] != "LIVRE") {
@@ -82,72 +82,80 @@ public class ControleAgenda extends Contatos {
 
 				InsertInFile(id + ", " + nome + ", " + telefone + ", " + dia + ", " + mes, getFile());
 
-				}
 			}
 		}
-	
+	}
+
 	/**
 	 * Metodo Pesquisa contato
+	 * 
 	 * @param contato
 	 */
 
 	public void PesquisContato(String contato) {
 		String nomepesquisado = "";
-		
+
 		for (int i = 0; i < getlinhas().length; i++) {
 			setNomes(getlinhas());
 		}
-		
+
 		for (int i = 0; i < getNomes().length; i++) {
-			if (contato.trim().equals(getNomes()[i].split(",")[1].trim())) {
+
+			if (contato.toUpperCase().trim().equals(getNomes()[i].toUpperCase().split(",")[1].trim())) {
 				nomepesquisado = (getNomes()[i]);
 			}
 		}
 		if (!nomepesquisado.isEmpty()) {
-			System.out.println(nomepesquisado);
-		}else 
+			System.out.println("Encontramos! \n\n" + nomepesquisado + "\n");
+		} else
 			System.out.println("Nome nao econtrado");
 	}
-	
+
 	/**
 	 * Metodo lista contatos pela primeira letra do nome
+	 * 
 	 * @param letra
 	 */
 	public void PesquisContatoLetra(String letra) {
-		String letraVerificada;
-		
+		String letraVerificada = "";
+		byte ctrl = 0;
 		for (int i = 0; i < getlinhas().length; i++) {
 			setNomes(getlinhas());
 		}
-		
+
 		for (int i = 0; i < getNomes().length; i++) {
 			letraVerificada = getNomes()[i].split(",")[1].trim().split("")[0];
+
 			if (letraVerificada.toUpperCase().equals(letra.toUpperCase())) {
 				System.out.println(getNomes()[i]);
+				ctrl = 1;
 			}
 		}
+		if (ctrl == 0) {
+			System.out.println("Nenhum nome inicia pela letra: " + letra.toUpperCase());
+		}
+
 	}
-	
-	
+
 	public void Aniversariantes() {
 		Calendario anivMes = new Calendario();
-		
+
 		for (int i = 0; i < getlinhas().length; i++) {
 			setNomes(getlinhas());
 		}
-		
+
 		for (int j = 1; j < getNomes().length; j++) {
-		int mesNiverContatos = Integer.parseInt(getNomes()[j].split(",")[4].trim());
-		
-		if (mesNiverContatos == anivMes.getMes() ) {
-			System.out.println(getNomes()[j]);
-			
+			int mesNiverContatos = Integer.parseInt(getNomes()[j].split(",")[4].trim());
+
+			if (mesNiverContatos == anivMes.getMes()) {
+				System.out.println(getNomes()[j]);
+
 			}
-		
+
 		}
-		
+
 	}
-	
+
 	/**
 	 * copia segura do arquivo na exclusão
 	 * 

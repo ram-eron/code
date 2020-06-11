@@ -3,7 +3,7 @@ package br.com.essencial.agenda;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class PAgenda {
+public class Agenda {
 
 	public static void main(String[] args) throws IOException {
 
@@ -23,17 +23,12 @@ public class PAgenda {
 			}
 
 			nome.ReadFile(nome.getFile());
-			
-			System.out.println(" \n------ Menu ------ : \n\n" 
-					+ "1 - Mostrar Contatos\n"
-					+ "2 - Pesquisar Contato por nome\n" 
-					+ "3 - Listar Contatos iniciados por letra\n"
-					+ "4 - Aniversariantes do Mes\n" 
-					+ "5 - Inserir Contato\n" 
-					+ "6 - Remover Contato\n" 
-					+ "0 - SAIR"
+
+			System.out.println(" \n------ Menu ------ : \n\n" + "1 - Mostrar Contatos\n"
+					+ "2 - Pesquisar Contato por nome\n" + "3 - Listar Contatos iniciados por letra\n"
+					+ "4 - Aniversariantes do Mes\n" + "5 - Inserir Contato\n" + "6 - Remover Contato\n" + "0 - SAIR"
 					+ "\n\n------------------ ");
-			
+
 			try {
 				ctrInicia = in.nextInt();
 			} catch (Exception e) {
@@ -44,9 +39,10 @@ public class PAgenda {
 				inicia = false;
 				in.close();
 				break;
-				
-					//Mostrar contatos
+
+			// Mostrar contatos
 			case 1:
+
 				for (int i = 0; i < nome.getlinhas().length; i++) {
 					nome.setNomes(nome.getlinhas());
 				}
@@ -54,46 +50,49 @@ public class PAgenda {
 					System.out.println(nome.getNomes()[i]);
 				}
 
-				System.out.println("\nPressione qlqer tecla para sair: ");
-				in.next();
+				Character sair = 'N';
+				while (!sair.equals('S')) {
+					System.out.println("\nPressione a tecla S para sair: ");
+					sair = Character.toUpperCase(in.next().charAt(0));
+				}
 
 				break;
 
-					// Pesquisa contato pelo nome
+			// Pesquisa contato pelo nome
 			case 2:
-					in.nextLine();
-					System.out.println("Informe o contato: ");
-						String contato = in.nextLine();
-					nome.PesquisContato(contato);
-				
+				in.nextLine();
+				System.out.println("Informe o contato: ");
+				String contato = in.nextLine();
+				nome.PesquisContato(contato);
+
 				break;
 
-					//Pesquisa pela Letra
+			// Pesquisa pela Letra
 			case 3:
-					in.nextLine();
-					System.out.println("Informe a LETRA: ");
-					String letra = in.next();
-					nome.PesquisContatoLetra(letra);
-		
-					break;
+				in.nextLine();
+				System.out.println("Informe a LETRA: ");
+				String letra = in.next();
+				nome.PesquisContatoLetra(letra);
+
+				break;
 
 			case 4:
-					//aniversariantes do mes corrente
-					nome.Aniversariantes();
-				
+				// aniversariantes do mes corrente
+				nome.Aniversariantes();
+
 				break;
 
 			case 5:
-					//Inserindo Nomes
-					System.out.println("Quantos nome deseja inserir ? ");
-					qtdNomes = Integer.parseInt(in.next());
-					// descarta a quebra de linha
-					in.nextLine();
-				
-					int iteradorNome = 1;
-				
+				// Inserindo Nomes
+				System.out.println("Quantos nome deseja inserir ? ");
+				qtdNomes = Integer.parseInt(in.next());
+				// descarta a quebra de linha
+				in.nextLine();
+
+				int iteradorNome = 1;
+
 				while (qtdNomes > 0) {
-						
+
 					System.out.println("Digite o " + iteradorNome + "º " + "nome : ");
 					nome.setNome(in.nextLine());
 
@@ -124,19 +123,19 @@ public class PAgenda {
 				System.out.println("informe o ID do contado a remover: ");
 				id = in.nextInt();
 				try {
-						nome.RemoveContato(id);
+					nome.RemoveContato(id);
 
 				} catch (Exception e) {
 					System.out.println("Erro: Valor não corresponde a nenhum ID");
 				}
 				break;
-				
-			case 7 :
+
+			case 7:
 				System.out.println(" OPÇÃO INVALIDA ");
 				in.next();
 
 			}
 		}
 	}
-	
+
 }
