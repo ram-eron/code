@@ -16,7 +16,7 @@ public class ProgramaB {
 		Controle b = new Controle();
 		while (true) {
 			b.CopiaArquivo(fileA, fileB);    // invocando metodo copia de segurança
-			Thread.sleep(500); // controle do tempo de execução
+			Thread.sleep(5000); // controle do tempo de execução
 		}
 		
 	}

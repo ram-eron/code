@@ -17,7 +17,7 @@ public class ProgramaC {
 
 		while (true) {
 			c.Comparador(fileA, fileB, fileC);    // invocando metodo copia de segurança
-			Thread.sleep(20000); // controle do tempo de execução
+			Thread.sleep(2000); // controle do tempo de execução
 		}
 		
 	}

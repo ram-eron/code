@@ -17,7 +17,6 @@ public class ProgramaA {
 			
 			c.InsereControl(file);	//invoca a criação do controle
 			
-			
 			if (sch == '1' ) {
 				Thread.sleep(5000); // executando em 5 seg
 				sch = '5';
