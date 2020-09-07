@@ -31,7 +31,7 @@ public class Vizinhanca {
 		
 		System.out.println("\ndigite um numero contido na matriz: ");
 			aux = sc.nextInt();
-		
+		//
 		for (int i = 0; i < mat.length; i++) {
 			for (int j = 0; j < mat[i].length; j++) {
 				
