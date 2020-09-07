@@ -40,7 +40,7 @@ public class MailApp {
 					new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() 
 				{
-					return new PasswordAuthentication("eron.palmeiras@gmail.com","Her@nd1l30");
+					return new PasswordAuthentication("eron.palmeiras@gmail.com","");
 				}
 			});
 			  	
